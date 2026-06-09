@@ -1,0 +1,82 @@
+.point-status {
+  padding: 20px 16px 100px;
+}
+
+.point-status__summary {
+  background: #461CC2;
+  border-radius: 16px;
+  padding: 28px 24px;
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.point-summary__label {
+  font-size: 14px;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 8px;
+}
+
+.point-summary__amount {
+  font-size: 32px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -1px;
+}
+
+.point-status__list-label {
+  font-size: 16px;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 14px;
+}
+
+.point-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.point-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #fafafa;
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.point-item__img {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.point-item__info {
+  flex: 1;
+  min-width: 0;
+}
+
+.point-item__name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 4px;
+}
+
+.point-item__date {
+  font-size: 12px;
+  color: #aaa;
+}
+
+.point-item__amount {
+  flex-shrink: 0;
+  font-size: 15px;
+  font-weight: 800;
+  color: #461CC2;
+}

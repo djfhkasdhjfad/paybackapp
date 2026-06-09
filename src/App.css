@@ -1,0 +1,43 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.tab-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.tab-nav {
+  display: flex;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 16px 4px;
+  border: none;
+  background: transparent;
+  font-family: 'Pretendard', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #aaa;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+  white-space: nowrap;
+}
+
+.tab-btn--active {
+  color: #461CC2;
+  font-weight: 700;
+  border-bottom-color: #461CC2;
+}
+
+.app-content {
+  flex: 1;
+  overflow-y: auto;
+}

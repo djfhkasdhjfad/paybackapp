@@ -1,0 +1,64 @@
+.swipe-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 0 20px;
+  background: #fafafa;
+}
+
+.swipe-stack {
+  position: relative;
+  width: 285px;
+  height: 450px;
+}
+
+.swipe-stack__item {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.swipe-hint {
+  display: flex;
+  justify-content: space-between;
+  width: 285px;
+  margin-top: 16px;
+  padding: 0 4px;
+}
+
+.hint-pass,
+.hint-join {
+  font-size: 13px;
+  font-weight: 500;
+  color: #aaa;
+}
+
+.hint-join {
+  color: #461CC2;
+}
+
+.swipe-section--empty {
+  height: 530px;
+  justify-content: center;
+  gap: 16px;
+}
+
+.swipe-empty-text {
+  font-size: 16px;
+  color: #888;
+  font-weight: 500;
+}
+
+.swipe-reset-btn {
+  background: #461CC2;
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  padding: 12px 32px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: 'Pretendard', sans-serif;
+  cursor: pointer;
+}
