@@ -1,3 +1,5 @@
+const base = import.meta.env.BASE_URL;
+
 export const PLATFORMS = {
   smartstore: { name: '스마트스토어', color: '#02A84D', bg: '#E3F6EB' },
   oliveyoung: { name: '올리브영', color: '#31AFA2', bg: '#E3F4F2' },
@@ -9,7 +11,7 @@ export const products = [
   {
     id: 1,
     name: '[온리추얼] 슬리밍컷 다이어트',
-    image: '/product1.jpg',
+    image: `${base}product1.jpg`,
     originalPrice: 49900,
     discountRate: 100,
     salePrice: 0,
@@ -19,7 +21,7 @@ export const products = [
   {
     id: 2,
     name: '[PDRN] 하이드레이팅 리페어 앰플',
-    image: '/product2.jpg',
+    image: `${base}product2.jpg`,
     originalPrice: 89000,
     discountRate: 90,
     salePrice: 8900,
@@ -29,7 +31,7 @@ export const products = [
   {
     id: 3,
     name: '[셀루마루] 블랙 뮤신 펩타이드 올인원크림 60ml',
-    image: '/product3.jpg',
+    image: `${base}product3.jpg`,
     originalPrice: 38000,
     discountRate: 80,
     salePrice: 7600,
@@ -39,7 +41,7 @@ export const products = [
   {
     id: 4,
     name: '[피트루트] 슈퍼프로틴 점핑 세럼 100ml',
-    image: '/product4.jpg',
+    image: `${base}product4.jpg`,
     originalPrice: 62000,
     discountRate: 100,
     salePrice: 0,
@@ -49,7 +51,7 @@ export const products = [
   {
     id: 5,
     name: '[30August] 빙하진생세럼',
-    image: '/product5.jpg',
+    image: `${base}product5.jpg`,
     originalPrice: 55000,
     discountRate: 90,
     salePrice: 5500,
@@ -59,7 +61,7 @@ export const products = [
   {
     id: 6,
     name: '[온리추얼] 슬리밍컷 다이어트 리뉴얼',
-    image: '/product1.jpg',
+    image: `${base}product1.jpg`,
     originalPrice: 54900,
     discountRate: 80,
     salePrice: 10980,
@@ -70,7 +72,7 @@ export const products = [
   {
     id: 7,
     name: '[PDRN] 하이드레이팅 리페어 앰플 2X',
-    image: '/product2.jpg',
+    image: `${base}product2.jpg`,
     originalPrice: 159000,
     discountRate: 100,
     salePrice: 0,
@@ -81,7 +83,7 @@ export const products = [
   {
     id: 8,
     name: '[30August] 빙하진생세럼 스페셜 에디션',
-    image: '/product5.jpg',
+    image: `${base}product5.jpg`,
     originalPrice: 79000,
     discountRate: 90,
     salePrice: 7900,
