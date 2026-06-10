@@ -15,6 +15,16 @@ export default function App() {
 
   return (
     <div className="app">
+      {/* 상단 헤더 */}
+      <div className="app-header">
+        <button className="app-header__back" aria-label="뒤로가기">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M15 19L8 12L15 5" stroke="#111" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
+        <h1 className="app-header__title">페이백 쇼핑</h1>
+      </div>
+
       <header className="tab-header">
         <nav className="tab-nav">
           {TABS.map(tab => (

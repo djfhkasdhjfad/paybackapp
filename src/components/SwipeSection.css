@@ -2,43 +2,103 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 24px 0 20px;
-  background: #fafafa;
+  padding: 16px 0 32px;
+}
+
+.swipe-stack-outer {
+  width: calc(100% - 32px);
+  position: relative;
+  padding-bottom: 28px;
+  overflow: visible;
 }
 
 .swipe-stack {
   position: relative;
-  width: 285px;
-  height: 450px;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: visible;
 }
 
 .swipe-stack__item {
   position: absolute;
-  inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+/* Peek 애니메이션: 오른쪽으로 30px 당겼다 돌아오기 2회 */
+.swipe-stack__item--peek {
+  animation: peek 0.8s ease-in-out 2;
+  transition: none;
+}
+
+@keyframes peek {
+  0%   { transform: scale(1) translateX(0)       rotate(0deg); }
+  35%  { transform: scale(1) translateX(30px)    rotate(3deg); }
+  70%  { transform: scale(1) translateX(0)       rotate(0deg); }
+  100% { transform: scale(1) translateX(0)       rotate(0deg); }
+}
+
+/* 인디케이터 점 - 이미지 상단 */
+.swipe-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.swipe-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ddd;
+  transition: all 0.3s ease;
+}
+
+.swipe-dot--active {
+  width: 18px;
+  border-radius: 3px;
+  background: #461CC2;
+}
+
+/* 힌트 */
 .swipe-hint {
   display: flex;
   justify-content: space-between;
-  width: 285px;
-  margin-top: 16px;
-  padding: 0 4px;
+  gap: 12px;
+  width: calc(100% - 32px);
+  margin-top: 14px;
 }
 
-.hint-pass,
-.hint-join {
-  font-size: 13px;
-  font-weight: 500;
-  color: #aaa;
+.hint-btn {
+  flex: 1;
+  height: 48px;
+  border-radius: 24px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: 'Pretendard', sans-serif;
+  cursor: pointer;
+  transition: opacity 0.15s;
 }
 
-.hint-join {
-  color: #461CC2;
+.hint-btn:active {
+  opacity: 0.75;
 }
 
+.hint-btn--pass {
+  background: #fff;
+  border: 1.5px solid #e0e0e0;
+  color: #888;
+}
+
+.hint-btn--join {
+  background: #461CC2;
+  border: none;
+  color: #fff;
+}
+
+/* 빈 상태 */
 .swipe-section--empty {
   height: 530px;
   justify-content: center;
