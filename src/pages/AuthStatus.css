@@ -1,61 +1,316 @@
 .auth-status {
-  padding: 20px 16px 100px;
+  padding: 16px 16px 100px;
 }
 
-.auth-status__count {
+/* ③ 총 적립 금액 배너 */
+.auth-total-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: linear-gradient(135deg, #461CC2, #7B4FE0);
+  border-radius: 14px;
+  padding: 14px 20px;
+  margin-bottom: 20px;
+}
+
+.auth-total-banner__label {
   font-size: 14px;
-  color: #888;
-  margin-bottom: 16px;
+  color: rgba(255,255,255,0.85);
+  font-weight: 500;
 }
 
+.auth-total-banner__amount {
+  font-size: 20px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.5px;
+}
+
+/* 섹션 */
+.auth-section {
+  margin-bottom: 32px;
+}
+
+.auth-section__title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.auth-section__count {
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  background: #461CC2;
+  border-radius: 20px;
+  padding: 1px 8px;
+}
+
+/* 리스트 */
 .auth-list {
-  list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
-.auth-item {
+/* 카드 */
+.auth-card {
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid #eee;
+  overflow: hidden;
+}
+
+/* D-3 이하 긴박감 배너 */
+.auth-urgent-banner {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #FFF0F0;
+  padding: 8px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #E53E3E;
+  border-bottom: 1px solid #FFE0E0;
+}
+
+.auth-urgent-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #E53E3E;
+  flex-shrink: 0;
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.7); }
+}
+
+/* 독려 메시지 */
+.auth-nudge {
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+/* 카드 헤더 */
+.auth-card__header {
   display: flex;
   align-items: center;
   gap: 12px;
-  background: #fafafa;
-  border-radius: 12px;
-  padding: 12px;
+  padding: 14px;
 }
 
-.auth-item__img {
-  width: 60px;
-  height: 60px;
-  border-radius: 8px;
+.auth-card__img {
+  width: 64px;
+  height: 64px;
+  border-radius: 10px;
   object-fit: cover;
   flex-shrink: 0;
 }
 
-.auth-item__info {
+.auth-card__info {
   flex: 1;
   min-width: 0;
 }
 
-.auth-item__name {
+.auth-card__name {
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 700;
   color: #111;
+  margin-bottom: 8px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  margin-bottom: 4px;
 }
 
-.auth-item__date {
+/* 기본 요약 행 */
+.auth-card__summary {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.summary-period {
   font-size: 12px;
-  color: #aaa;
+  color: #bbb;
 }
 
-.auth-item__badge {
-  flex-shrink: 0;
+.summary-dday {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.summary-mission-badge {
+  margin-left: auto;
   font-size: 12px;
   font-weight: 700;
-  padding: 5px 10px;
+  color: #461CC2;
+  background: #EDE8FF;
   border-radius: 20px;
+  padding: 2px 10px;
+}
+
+/* 완료 카드 적립 금액 */
+.auth-card__earned {
+  font-size: 13px;
+  color: #888;
+}
+
+.auth-card__earned strong {
+  color: #461CC2;
+  font-weight: 700;
+}
+
+/* 토글 버튼 */
+.auth-card__toggle {
+  width: 100%;
+  height: 32px;
+  border: none;
+  border-top: 1px solid #f0f0f0;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+  padding: 0;
+}
+
+.auth-card__toggle svg {
+  transition: transform 0.25s ease;
+}
+
+.auth-card__toggle--open svg {
+  transform: rotate(180deg);
+}
+
+/* 펼쳐지는 상세 */
+.auth-card__detail {
+  border-top: 1px solid #f0f0f0;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: #fafafa;
+}
+
+/* 구매기간 (펼쳤을 때) */
+.detail-period-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.detail-period-label {
+  font-size: 12px;
+  color: #bbb;
+  flex-shrink: 0;
+}
+
+.detail-period-value {
+  font-size: 12px;
+  color: #999;
+}
+
+/* 미션 목록 */
+.auth-card__missions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mission-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mission-row__left {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.mission-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+/* ② 검수중 예상 소요 */
+.mission-reviewing-hint {
+  font-size: 11px;
+  color: #D97706;
+}
+
+/* ① 기본 노출 인증하기 버튼 */
+.auth-card__quick-btn {
+  padding: 0 14px 14px;
+}
+
+
+.mission-badge {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+/* 혜택 보너스 */
+.auth-card__bonus {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  border-radius: 10px;
+  padding: 10px 12px;
+  border: 1px solid #eee;
+}
+
+.bonus-label {
+  font-size: 13px;
+  color: #888;
+}
+
+.bonus-desc {
+  font-size: 13px;
+  color: #555;
+}
+
+.bonus-amount {
+  color: #461CC2;
+  font-weight: 700;
+}
+
+/* 인증하기 버튼 */
+.auth-cert-btn {
+  width: 100%;
+  height: 44px;
+  border-radius: 12px;
+  background: #111;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: 'Pretendard', sans-serif;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.auth-cert-btn:disabled {
+  background: #eee;
+  color: #bbb;
+  cursor: default;
+}
+
+.auth-cert-btn:not(:disabled):active {
+  opacity: 0.8;
 }
