@@ -141,6 +141,12 @@ function AuthCard({ item, isDone }) {
                   {doneCnt}/{total} 완료
                 </span>
               </div>
+              <div className="auth-progress">
+                <div
+                  className="auth-progress__bar"
+                  style={{ width: `${(doneCnt / total) * 100}%` }}
+                />
+              </div>
               {nudge && (
                 <p className="auth-nudge" style={{ color: nudge.color }}>{nudge.text}</p>
               )}
@@ -180,35 +186,32 @@ function AuthCard({ item, isDone }) {
         <div className="auth-card__detail">
           <div className="detail-period-row">
             <span className="detail-period-label">구매기간</span>
-            <span className="detail-period-value">{item.purchasePeriod}</span>
+            <span className="detail-period-value" style={{ color: getDday(getEndDate(item.purchasePeriod)).color, fontWeight: 700 }}>
+              {getDday(getEndDate(item.purchasePeriod)).label}
+            </span>
           </div>
 
           <div className="auth-card__missions">
             {item.missions.map((m, i) => (
               <div key={i} className="mission-row">
-                <div className="mission-row__left">
-                  <span className="mission-name">{m.name}</span>
-                  {/* ② 검수중 예상 완료일 */}
+                <span className="mission-name">{m.name}</span>
+                <div className="mission-row__right">
                   {m.status === 'reviewing' && (
                     <span className="mission-reviewing-hint">보통 1~2일 소요돼요</span>
                   )}
+                  <MissionBadge status={m.status} />
                 </div>
-                <MissionBadge status={m.status} />
               </div>
             ))}
           </div>
 
           <div className="auth-card__bonus">
-            <span className="bonus-label">혜택 · 보너스</span>
             <span className="bonus-desc">
               모든 미션 완료시
               <strong className="bonus-amount"> +{item.bonus.toLocaleString()}원</strong>
             </span>
           </div>
 
-          <button className="auth-cert-btn" disabled={allDone}>
-            {allDone ? '인증 완료' : '인증하기'}
-          </button>
         </div>
       )}
     </div>
