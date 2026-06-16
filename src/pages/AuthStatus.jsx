@@ -19,7 +19,7 @@ function getEndDate(period) {
 
 const MISSION_STATUS = {
   done:      { label: '인증완료', color: '#461CC2', bg: '#EDE8FF' },
-  reviewing: { label: '검수중',   color: '#D97706', bg: '#FFFBEB' },
+  reviewing: { label: '검수중',   color: '#aaa',    bg: '#F5F5F5' },
   fail:      { label: '인증실패', color: '#E53E3E', bg: '#FFF0F0' },
   pending:   { label: '인증전',   color: '#aaa',    bg: '#F5F5F5' },
 };
@@ -107,7 +107,7 @@ function AuthCard({ item, isDone }) {
   const total = item.missions.length;
   const allDone = doneCnt === total;
   const certDday = getDday(getEndDate(item.certPeriod));
-  const isUrgent = !isDone && (certDday.label === 'D-day' || (certDday.label.startsWith('D-') && parseInt(certDday.label.slice(2)) <= 3));
+  const isUrgent = !isDone && (certDday.label === '마감' || certDday.label === 'D-day' || (certDday.label.startsWith('D-') && parseInt(certDday.label.slice(2)) <= 3));
   const nudge = !isDone ? getNudgeMessage(doneCnt, total, item.missions) : null;
 
   // nudge 메시지가 있는 모든 케이스 → 인증하기 버튼 기본 노출
@@ -184,17 +184,17 @@ function AuthCard({ item, isDone }) {
       {/* 펼쳐지는 상세 */}
       {!isDone && expanded && (
         <div className="auth-card__detail">
-          <div className="detail-period-row">
-            <span className="detail-period-label">구매기간</span>
-            <span className="detail-period-value" style={{ color: getDday(getEndDate(item.purchasePeriod)).color, fontWeight: 700 }}>
-              {getDday(getEndDate(item.purchasePeriod)).label}
-            </span>
-          </div>
-
           <div className="auth-card__missions">
             {item.missions.map((m, i) => (
               <div key={i} className="mission-row">
-                <span className="mission-name">{m.name}</span>
+                <div className="mission-row__left">
+                  <span className="mission-name">{m.name}</span>
+                  {m.name === '구매확정 인증' && (
+                    <span className="detail-period-value" style={{ color: getDday(getEndDate(item.purchasePeriod)).color, fontWeight: 700, marginLeft: 8 }}>
+                      구매기간 {getDday(getEndDate(item.purchasePeriod)).label}
+                    </span>
+                  )}
+                </div>
                 <div className="mission-row__right">
                   {m.status === 'reviewing' && (
                     <span className="mission-reviewing-hint">보통 1~2일 소요돼요</span>
