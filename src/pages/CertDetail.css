@@ -1,0 +1,128 @@
+.cert-detail {
+  padding-bottom: 100px;
+}
+
+/* 상품 정보 */
+.cd-product {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+}
+
+.cd-product__img {
+  width: 56px;
+  height: 56px;
+  border-radius: 10px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.cd-product__name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #111;
+  line-height: 1.4;
+}
+
+.cd-divider {
+  height: 8px;
+  background: #f5f5f5;
+}
+
+/* 넛지 + 총액 */
+.cd-summary {
+  padding: 20px 16px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cd-nudge {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.cd-total {
+  font-size: 15px;
+  color: #555;
+}
+
+.cd-total strong {
+  color: #111;
+  font-weight: 800;
+}
+
+/* 미션 리스트 */
+.cd-mission-list {
+  padding: 8px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cd-mission-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 14px;
+  padding: 14px;
+}
+
+.cd-mission-left {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cd-mission-label {
+  font-size: 15px;
+  font-weight: 600;
+  color: #111;
+}
+
+.cd-mission-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 20px;
+  width: fit-content;
+}
+
+/* 버튼 */
+.cd-mission-btn {
+  flex-shrink: 0;
+  height: 38px;
+  padding: 0 14px;
+  border-radius: 10px;
+  border: none;
+  background: #111;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  font-family: 'Pretendard', sans-serif;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity 0.15s;
+}
+
+.cd-mission-btn:active {
+  opacity: 0.8;
+}
+
+.cd-mission-btn--done {
+  background: #f0f0f0;
+  color: #bbb;
+  cursor: default;
+}
+
+.cd-mission-done-text {
+  font-size: 13px;
+  font-weight: 700;
+  color: #461CC2;
+  flex-shrink: 0;
+}

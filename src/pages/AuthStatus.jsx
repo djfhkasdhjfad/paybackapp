@@ -17,7 +17,7 @@ function getEndDate(period) {
   return period.split(' ~ ')[1];
 }
 
-const MISSION_STATUS = {
+export const MISSION_STATUS = {
   done:      { label: '인증완료', color: '#461CC2', bg: '#EDE8FF' },
   reviewing: { label: '검수중',   color: '#aaa',    bg: '#F5F5F5' },
   fail:      { label: '인증실패', color: '#E53E3E', bg: '#FFF0F0' },
@@ -101,7 +101,7 @@ function getNudgeMessage(doneCnt, total, missions) {
   return null;
 }
 
-function AuthCard({ item, isDone }) {
+function AuthCard({ item, isDone, onCertClick }) {
   const [expanded, setExpanded] = useState(false);
   const doneCnt = item.missions.filter(m => m.status === 'done').length;
   const total = item.missions.length;
@@ -163,7 +163,7 @@ function AuthCard({ item, isDone }) {
       {/* 인증하기 버튼 — 항상 노출 (펼쳐도 유지) */}
       {showBtnDefault && (
         <div className="auth-card__quick-btn">
-          <button className="auth-cert-btn">인증하기</button>
+          <button className="auth-cert-btn" onClick={() => onCertClick?.(item)}>인증하기</button>
         </div>
       )}
 
@@ -197,7 +197,7 @@ function AuthCard({ item, isDone }) {
                 </div>
                 <div className="mission-row__right">
                   {m.status === 'reviewing' && (
-                    <span className="mission-reviewing-hint">보통 1~2일 소요돼요</span>
+                    <span className="mission-reviewing-hint">1~2일 소요</span>
                   )}
                   <MissionBadge status={m.status} />
                 </div>
@@ -218,7 +218,7 @@ function AuthCard({ item, isDone }) {
   );
 }
 
-export default function AuthStatus() {
+export default function AuthStatus({ onCertClick }) {
   return (
     <div className="auth-status">
       {/* ③ 총 적립 금액 상단 배너 */}
@@ -235,7 +235,7 @@ export default function AuthStatus() {
           진행중 <span className="auth-section__count">{mockInProgress.length}</span>
         </h2>
         <div className="auth-list">
-          {mockInProgress.map(item => <AuthCard key={item.id} item={item} isDone={false} />)}
+          {mockInProgress.map(item => <AuthCard key={item.id} item={item} isDone={false} onCertClick={onCertClick} />)}
         </div>
       </div>
 

@@ -18,11 +18,11 @@ function PlatformTag({ platform }) {
   );
 }
 
-function ProductCard({ product }) {
+function ProductCard({ product, onClick }) {
   const isSoon = product.status === 'coming_soon';
 
   return (
-    <div className={`product-card ${isSoon ? 'product-card--soon' : ''}`}>
+    <div className={`product-card ${isSoon ? 'product-card--soon' : ''}`} onClick={() => onClick(product)} style={{ cursor: 'pointer' }}>
       <div className="product-card__thumb-wrap">
         <img src={product.image} alt={product.name} className="product-card__thumb" />
         {product.platform && (
@@ -48,7 +48,7 @@ function ProductCard({ product }) {
   );
 }
 
-export default function ProductList({ products }) {
+export default function ProductList({ products, onProductClick }) {
   const onSale = products.filter(p => p.status === 'on_sale');
   const comingSoon = products.filter(p => p.status === 'coming_soon');
 
@@ -56,14 +56,14 @@ export default function ProductList({ products }) {
     <div className="product-list">
       <div className="product-list__section-label">판매중</div>
       <div className="product-list__grid">
-        {onSale.map(p => <ProductCard key={p.id} product={p} />)}
+        {onSale.map(p => <ProductCard key={p.id} product={p} onClick={onProductClick} />)}
       </div>
 
       <div className="product-list__section-label product-list__section-label--soon">
         오픈 예정
       </div>
       <div className="product-list__grid">
-        {comingSoon.map(p => <ProductCard key={p.id} product={p} />)}
+        {comingSoon.map(p => <ProductCard key={p.id} product={p} onClick={onProductClick} />)}
       </div>
     </div>
   );

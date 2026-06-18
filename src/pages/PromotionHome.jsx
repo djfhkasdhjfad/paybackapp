@@ -3,10 +3,10 @@ import ProductList from '../components/ProductList';
 import { products, swipeProducts } from '../data/products';
 import './PromotionHome.css';
 
-export default function PromotionHome() {
+export default function PromotionHome({ onProductClick }) {
   return (
     <div>
-      <SwipeSection products={swipeProducts} />
+      <SwipeSection products={swipeProducts} onProductClick={onProductClick} />
 
       {/* 배너 */}
       <div className="promo-banner-wrap">
@@ -17,7 +17,7 @@ export default function PromotionHome() {
         />
       </div>
 
-      <ProductList products={products} />
+      <ProductList products={products} onProductClick={onProductClick} />
     </div>
   );
 }

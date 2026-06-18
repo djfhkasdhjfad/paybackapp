@@ -7,6 +7,12 @@ export const PLATFORMS = {
   kakao: { name: '카카오선물하기', color: '#FF7A00', bg: '#FFE6D4' },
 };
 
+const defaultMissions = [
+  { name: '좋아요/찜 인증', desc: '상품 페이지에서 좋아요 또는 찜 후 캡처', bonus: 0 },
+  { name: '구매확정 인증', desc: '구매확정 완료 후 캡처', bonus: 0 },
+  { name: '리뷰 인증', desc: '구매 리뷰 작성 후 캡처', bonus: 2000 },
+];
+
 export const products = [
   {
     id: 1,
@@ -17,6 +23,9 @@ export const products = [
     salePrice: 0,
     status: 'on_sale',
     platform: 'smartstore',
+    purchaseEnd: '2026.06.30',
+    certEnd: '2026.07.07',
+    missions: defaultMissions,
   },
   {
     id: 2,
@@ -27,6 +36,9 @@ export const products = [
     salePrice: 8900,
     status: 'on_sale',
     platform: 'oliveyoung',
+    purchaseEnd: '2026.06.30',
+    certEnd: '2026.07.07',
+    missions: defaultMissions,
   },
   {
     id: 3,
@@ -37,6 +49,9 @@ export const products = [
     salePrice: 7600,
     status: 'on_sale',
     platform: 'coupang',
+    purchaseEnd: '2026.06.30',
+    certEnd: '2026.07.07',
+    missions: defaultMissions,
   },
   {
     id: 4,
@@ -47,6 +62,9 @@ export const products = [
     salePrice: 0,
     status: 'on_sale',
     platform: 'kakao',
+    purchaseEnd: '2026.06.30',
+    certEnd: '2026.07.07',
+    missions: defaultMissions,
   },
   {
     id: 5,
@@ -57,6 +75,9 @@ export const products = [
     salePrice: 5500,
     status: 'on_sale',
     platform: 'oliveyoung',
+    purchaseEnd: '2026.06.30',
+    certEnd: '2026.07.07',
+    missions: defaultMissions,
   },
   {
     id: 6,
@@ -68,6 +89,9 @@ export const products = [
     status: 'coming_soon',
     openDate: '6/20 오픈 예정',
     platform: 'smartstore',
+    purchaseEnd: '2026.07.20',
+    certEnd: '2026.07.27',
+    missions: defaultMissions,
   },
   {
     id: 7,
@@ -79,6 +103,9 @@ export const products = [
     status: 'coming_soon',
     openDate: '6/25 오픈 예정',
     platform: 'coupang',
+    purchaseEnd: '2026.07.25',
+    certEnd: '2026.08.01',
+    missions: defaultMissions,
   },
   {
     id: 8,
@@ -90,6 +117,9 @@ export const products = [
     status: 'coming_soon',
     openDate: '7/1 오픈 예정',
     platform: 'kakao',
+    purchaseEnd: '2026.08.01',
+    certEnd: '2026.08.08',
+    missions: defaultMissions,
   },
 ];
 
