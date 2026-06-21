@@ -1,0 +1,206 @@
+.mission-cert {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding-bottom: 100px;
+}
+
+/* 5번: 제출 완료 토스트 */
+.mc-toast {
+  position: fixed;
+  bottom: 96px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #111;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 13px 20px;
+  border-radius: 99px;
+  white-space: nowrap;
+  z-index: 100;
+  animation: mc-toast-in 0.25s ease;
+}
+
+@keyframes mc-toast-in {
+  from { opacity: 0; transform: translateX(-50%) translateY(10px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+.mc-body {
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.mc-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #111;
+  line-height: 1.3;
+}
+
+.mc-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mc-section-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #888;
+}
+
+.mc-sample-img {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid #eee;
+}
+
+/* 업로드 영역 */
+.mc-upload-area {
+  width: 100%;
+  min-height: 180px;
+  border: 2px dashed #ddd;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  background: #fafafa;
+  transition: border-color 0.15s;
+  overflow: hidden;
+}
+
+.mc-upload-area:active {
+  border-color: #461CC2;
+}
+
+.mc-upload-area--filled {
+  border-style: solid;
+  border-color: #eee;
+  min-height: 240px;
+  padding: 0;
+}
+
+.mc-upload-icon {
+  margin-bottom: 2px;
+}
+
+.mc-upload-text {
+  font-size: 14px;
+  font-weight: 600;
+  color: #aaa;
+}
+
+.mc-upload-hint {
+  font-size: 12px;
+  color: #ccc;
+}
+
+.mc-preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* 썸네일 그리드 */
+.mc-thumbnail-grid {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.mc-thumbnail {
+  position: relative;
+  width: calc((100% - 20px) / 3);
+  aspect-ratio: 1;
+  border-radius: 10px;
+  overflow: visible;
+  flex-shrink: 0;
+}
+
+.mc-thumbnail-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid #eee;
+}
+
+.mc-thumbnail-delete {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #333;
+  border: 2px solid #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1;
+}
+
+.mc-add-btn {
+  width: calc((100% - 20px) / 3);
+  aspect-ratio: 1;
+  height: auto;
+  border-radius: 10px;
+  border: 2px dashed #ddd;
+  background: #fafafa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  color: #bbb;
+  font-family: 'Pretendard', sans-serif;
+}
+
+/* 바텀시트 */
+.mc-bottom-sheet {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 480px;
+  padding: 12px 16px 28px;
+  background: #fff;
+  border-top: 1px solid #f0f0f0;
+}
+
+.mc-btn-submit {
+  width: 100%;
+  height: 52px;
+  border-radius: 14px;
+  border: none;
+  background: #111;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: 'Pretendard', sans-serif;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.mc-btn-submit:disabled {
+  background: #ddd;
+  color: #aaa;
+  cursor: default;
+}
+
+.mc-btn-submit:not(:disabled):active {
+  opacity: 0.8;
+}

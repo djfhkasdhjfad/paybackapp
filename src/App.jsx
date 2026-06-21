@@ -4,6 +4,7 @@ import AuthStatus from './pages/AuthStatus';
 import PointStatus from './pages/PointStatus';
 import ProductDetail from './pages/ProductDetail';
 import CertDetail from './pages/CertDetail';
+import MissionCert from './pages/MissionCert';
 import './App.css';
 
 const TABS = [
@@ -16,12 +17,14 @@ export default function App() {
   const [activeTab, setActiveTab] = useState('home');
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [certItem, setCertItem] = useState(null);
+  const [certMission, setCertMission] = useState(null);
 
   return (
     <div className="app">
       {/* 상단 헤더 */}
       <div className="app-header">
         <button className="app-header__back" aria-label="뒤로가기" onClick={() => {
+          if (certMission) { setCertMission(null); return; }
           if (certItem) { setCertItem(null); return; }
           setSelectedProduct(null);
         }}>
@@ -30,7 +33,7 @@ export default function App() {
           </svg>
         </button>
         <h1 className="app-header__title">
-          {certItem ? '상품 인증 현황' : selectedProduct ? '상품 상세' : '페이백 쇼핑'}
+          {certMission ? certMission.label : certItem ? '상품 인증 현황' : selectedProduct ? '상품 상세' : '페이백 쇼핑'}
         </h1>
       </div>
 
@@ -51,8 +54,10 @@ export default function App() {
       )}
 
       <main className="app-content">
-        {certItem ? (
-          <CertDetail item={certItem} onBack={() => setCertItem(null)} />
+        {certMission ? (
+          <MissionCert mission={certMission} bonus={certMission.bonus} onBack={() => setCertMission(null)} />
+        ) : certItem ? (
+          <CertDetail item={certItem} onBack={() => setCertItem(null)} onMissionClick={setCertMission} />
         ) : selectedProduct ? (
           <ProductDetail product={selectedProduct} onBack={() => setSelectedProduct(null)} onCertClick={setCertItem} />
         ) : (

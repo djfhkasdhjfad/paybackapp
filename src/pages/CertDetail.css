@@ -35,7 +35,36 @@
   padding: 20px 16px 8px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
+}
+
+/* 2번: 프로그레스바 */
+.cd-progress-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cd-progress-bar {
+  flex: 1;
+  height: 8px;
+  background: #eee;
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.cd-progress-fill {
+  height: 100%;
+  background: #461CC2;
+  border-radius: 99px;
+  transition: width 0.4s ease;
+}
+
+.cd-progress-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #461CC2;
+  white-space: nowrap;
 }
 
 .cd-nudge {
@@ -62,13 +91,30 @@
 }
 
 .cd-mission-row {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+/* 6번: 다음 미션 강조 */
+.cd-mission-row--next {
+  border-color: #461CC2;
+}
+
+.cd-next-badge {
+  background: #461CC2;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 5px 14px;
+}
+
+.cd-mission-row-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  background: #fff;
-  border: 1px solid #eee;
-  border-radius: 14px;
   padding: 14px;
 }
 
@@ -76,6 +122,22 @@
   display: flex;
   flex-direction: column;
   gap: 6px;
+}
+
+.cd-mission-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* 4번: 미션별 혜택 배지 */
+.cd-mission-bonus-tag {
+  font-size: 11px;
+  font-weight: 700;
+  color: #461CC2;
+  background: #EDE8FF;
+  padding: 2px 7px;
+  border-radius: 20px;
 }
 
 .cd-mission-label {
